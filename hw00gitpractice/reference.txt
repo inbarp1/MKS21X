@@ -1,0 +1,5 @@
+clone: copys a repo to your local machine
+pull: update a local repo
+add:selects things to commit
+commit:lock in a version
+push: sync changes to github
