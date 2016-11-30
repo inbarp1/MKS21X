@@ -1,0 +1,27 @@
+public class Book{
+    String author;
+    String title;
+    String ISBN;
+    public Book(){
+    }
+    public Book(auth, titl, ISBNnum){
+	author=auth;
+	title=titl;
+	ISBN=ISBNnum;}
+    public String getAuthor(){
+	return author;}
+    public void setAuthor(auth){
+	author=auth;}
+     public String getTitle(){
+	return title;}
+    public void setTitle(title){
+       title=titl;}
+     public String getISBN(){
+	return ISBN;}
+    public void setISBN(isbn){
+	ISBN=isbn;}
+    public String toString(){
+	return title+ "," + author+"," +ISBN;
+    }
+    
+    
