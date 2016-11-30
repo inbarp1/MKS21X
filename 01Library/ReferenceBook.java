@@ -32,7 +32,7 @@ public class ReferenceBook extends LibraryBook{
 	System.out.println("Reference book could not have been checked out--return impossible");}
     public String circulationStatus(){
 	return "non-circulating reference book";}
-    public int CompareTo(LibraryBook b){
+    public int compareTo(LibraryBook b){
     if (Integer.parseInt(callNumber)>Integer.parseInt(b.getCallNumber())){
 	return 1;}
     if (Integer.parseInt(callNumber)==Integer.parseInt(b.getCallNumber())){

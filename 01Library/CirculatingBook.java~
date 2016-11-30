@@ -1,0 +1,60 @@
+public class CirculatingBook extends LibraryBook{
+    String currentHolder;
+    String dueDate;
+  public CirculatingBook(String auth,String ti,String isbn, String callNum, String collect){
+	author=auth;
+	title=ti;
+	ISBN=isbn;
+	callNumber=callNum;
+	collection=collect;
+	currentHolder=null;
+	dueDate=null;}
+    public String getAuthor(){
+	return author;}
+    public void setAuthor(String auth){
+	author=auth;}
+    public String getTitle(){
+	return title;}
+    public void setTitle(String titl){
+	title=titl;}
+    public String getISBN(){
+	return ISBN;}
+    public void setISBN(String isbn){
+	ISBN=isbn;}
+    public String getCallNumber(){
+	return callNumber;}
+    public void setCallNumber(String callnum){
+	callNumber=callnum;}
+    public String getCollection(){
+	return collection;}
+    public void setCollection(String collect){
+	collection=collect;}
+    public void  setCurrentHolder(String currhol){
+	currentHolder=curhol;}
+    public String getCurrentHolder(){
+	return currentHolder;}
+    public String getDueDate(){
+	return dueDate;}
+    public void setDuedate(String dd){
+	dueDate=dd;}
+    public void checkout(String patron, String due){
+	currentHolder=patron;
+	dueDate=due;}
+    public void returned(){
+	currentHolder=null;
+	dueDate=null;}
+    private boolean circulating(){
+	return !(currentHolder==null)}
+    public String circulationStatus(){
+	if (circulating){
+	    return currentHolder +" checked this book out and it is due "+dueDate;}
+	    else{
+		return "book is available on shelves";
+	    }}
+	public String toString(){
+	
+	    return title + "," + author +"," + ISBN +"," +callNumber +"," + this.circulationStatus()+ }
+	   
+	
+	
+	
