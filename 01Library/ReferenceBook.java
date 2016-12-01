@@ -33,12 +33,7 @@ public class ReferenceBook extends LibraryBook{
     public String circulationStatus(){
 	return "non-circulating reference book";}
     public int compareTo(LibraryBook b){
-    if (Integer.parseInt(callNumber)>Integer.parseInt(b.getCallNumber())){
-	return 1;}
-    if (Integer.parseInt(callNumber)==Integer.parseInt(b.getCallNumber())){
-	return 0;}
-    else{
-	return -1;}}
+    return callNumber.compareTo(b.getCallNumber());}
     public String toString(){
 	return title + "," + author +"," + ISBN +"," +callNumber +"," + this.circulationStatus()+","+collection;}
 }
