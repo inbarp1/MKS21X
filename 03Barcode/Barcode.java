@@ -1,3 +1,4 @@
+import java.util.*;
 public class Barcode implements Comparable<Barcode>{
     // instance variables
     private String _zip;
@@ -30,14 +31,14 @@ public class Barcode implements Comparable<Barcode>{
     //postcondition: format zip + check digit + Barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
     public String toString(){
-	return _zip+_checkDigit+" " + toBarcode(_zip)+toBarcode(_checkDigit);
+	return _zip+_checkDigit+" " + toBarcode(_zip)+toBarcode(Integer.toString(_checkDigit));
     }
     public String toBarcode(String zip){
 	int number =0;
 	String part ="";
 	String toreturn ="|";
-	for(int index=0; index<_zip.length();i++){
-		number=Integer.parseInt(_zip.charAt(index));
+	for(int index=0; index<_zip.length();index++){
+	    number=Integer.parseInt(Character.toString((_zip.charAt(index))));
 		toreturn+=part;}
 	    switch(number){
 	    case 0: part=":::||";
@@ -64,13 +65,13 @@ public class Barcode implements Comparable<Barcode>{
     }
     //throw exception for when it is not right length, for when it is not all indexes, when it doesnt all start and end w | when checksum doesnt work and when there are illegal chars
     public String toZip(String code){
-	if (code.charAt(0)!='|"=' || code.charAt(31)!=='|'){
-	    throw IllegalArgumentException("your barcode must begin with | and end with |");}
+	if (code.charAt(0)!='|' || code.charAt(31)!='|'){
+	    throw new IllegalArgumentException("your barcode must begin with | and end with |");}
 	if (code.length()!=32){
-	    throw IllegalArgumentException("your barcode needs to be 32 characters long");}
+	    throw new  IllegalArgumentException("your barcode needs to be 32 characters long");}
 	for(int n=0; n<code.length()-1;n++){
 	    if(code.charAt(n)!='|' || code.charAt(n)!=':'){
-		throw IllegalArgumentException("String must be composed of only : and |");}}
+		throw new  IllegalArgumentException("String must be composed of only : and |");}}
 	String []array=new String[10];
 	array[0]=":::||";
 	array[1]= "||:::";
@@ -89,9 +90,9 @@ public class Barcode implements Comparable<Barcode>{
 	    part="";
 	    for(int i=0; i<5;i++){
 		part+=code.charAt(index+i);}
-	    zip+=Integer.toString(array.indexOf(part));}
-	if (checkDigit(Integer.parseInt(zip)/10)!=Integer.parseInt(zip)%10){
-	    throw IllegalArgumentException("checksum does not work out");}
+	    zip+=Integer.toString(array.IndexOf(part));}
+	if (checkSum(Integer.toString(Integer.parseInt(zip)/10))!=Integer.parseInt(zip)%10){
+	    throw new IllegalArgumentException("checksum does not work out");}
     return zip;
     }
 
