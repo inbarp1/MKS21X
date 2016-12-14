@@ -11,15 +11,20 @@ public class Sorts{
   */
   public static void selectionSort(int[] data){
       int startIndex=0;
-      int indexofSmallestNumber=0;
       while(startIndex<data.length-1){
-	  for(int i=0; int<data.length; int++){
+	  // System.out.println("this is the start index:"+startIndex);
+	  int indexofSmallestNumber=startIndex;
+	  for(int i=startIndex; i<data.length; i++){
 	      if(data[i]<data[indexofSmallestNumber]){
-		  indexofSmallestNumber=i;
-	      
+		  indexofSmallestNumber=i;}}
+	  //System.out.println("this is the smallest number:"+data[indexofSmallestNumber]+ "and this is its index"+indexofSmallestNumber);
+	  int num= data[startIndex];
+	  
+	  data[startIndex]=data[indexofSmallestNumber];
+	  data[indexofSmallestNumber]=num;
+	  startIndex+=1;}}		
       
 
  
  }
 
-}
