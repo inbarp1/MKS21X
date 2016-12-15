@@ -24,7 +24,18 @@ public class Sorts{
 	  data[indexofSmallestNumber]=num;
 	  startIndex+=1;}}		
       
-
+    public static void insertionSort(int[] data){
+	for(int start=1;start<data.length-1;start++){
+	    if(data[start]<data[start-1]){
+		int insert=data[start];
+		System.out.println("this is the insert:" +insert);
+		if (data.length-start-1==1){
+		    data[start-1]=data[start];
+		    data[start]=data[start-1];}
+		for(int shift=start+1;shift<data.length-1;shift++){
+		    data[shift+1]=data[shift];}
+		System.out.println("This is where it is being inserted:"+ start);
+		data[start-1]=insert;}}}
  
  }
 
